@@ -23,7 +23,7 @@ jobs:
       
       - name: Run Neoload test
         run: |
-          neoload run --scenario "HappyFlow" --noGUI
+          neoload --launch-scenario "HappyFlow" --no-std-webconsole
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
