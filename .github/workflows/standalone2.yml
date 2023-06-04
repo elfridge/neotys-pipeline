@@ -21,12 +21,9 @@ jobs:
           mkdir -p tests/neoload_projects
           unzip -o demowebshopp.zip -d tests/neoload_projects
       
-      - name: Login to Neoload
-        run: neoload login --url 'https://neoload-api.saas.neotys.com/' '2715b6aafd2f6eb568e7d62b709e5a28a4cf6df9711db161'
-
       - name: Run Neoload test
         run: |
-          neoload run --scenario "HappyFlow" "My Github Test With CLI"
+          neoload run --scenario "HappyFlow" --noGUI
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
