@@ -20,9 +20,6 @@ jobs:
         run: |
           mkdir -p tests/neoload_projects
           unzip demowebshopp.zip -d tests/neoload_projects
-
-      - name: "Prepare NeoLoad test"
-        run: neoload login --url 'https://neoload-api.saas.neotys.com/' '2715b6aafd2f6eb568e7d62b709e5a28a4cf6df9711db161'
       
       - name: Run Neoload test
         run: |
