@@ -19,7 +19,6 @@ jobs:
       - name: Extract Neoload test project
         run: | 
           unzip demowebshopp.zip -d demowebshopp
-          neoload test-settings use demowebshopp
       
       - name: Run Neoload test
         run: |
