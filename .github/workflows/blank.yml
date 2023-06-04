@@ -15,7 +15,10 @@ jobs:
 
       - name: Install Neoload CLI
         run: pip3 install -U neoload
-
+        
+      - name: Login to Neoload
+        run: neoload login --url 'https://neoload-api.saas.neotys.com/' --token '2715b6aafd2f6eb568e7d62b709e5a28a4cf6df9711db161'
+        
       - name: Extract Neoload test project
         run: unzip demowebshopp.zip -d demowebshopp
 
