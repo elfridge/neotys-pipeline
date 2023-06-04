@@ -21,7 +21,6 @@ jobs:
           neoload login --url 'https://neoload-api.saas.neotys.com/' '2715b6aafd2f6eb568e7d62b709e5a28a4cf6df9711db161' \
                   test-settings --zone defaultzone --scenario 'HappyFlow' createorpatch "My Github Test With CLI" \
                   project --path demowebshopp.zip upload
-                  neoload project --path demowebshopp
         
       - name: Extract Neoload test project
         run: unzip demowebshopp.zip -d demowebshopp
