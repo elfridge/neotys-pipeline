@@ -18,8 +18,7 @@ jobs:
                   
       - name: "Prepare NeoLoad test"
         run: |
-          neoload test-settings createorpatch "My Github Test With CLI" \
-            project --path demowebshopp.zip \
+          neoload project upload --path demowebshopp.zip \
             --scenario 'HappyFlow'
       
       - name: Run Neoload test
