@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Neoload test
         run: |
-          neoload run --scenario "HappyFlow" --zone "defaultzone" "My Github Test With CLI"
+          neoload run --scenario "HappyFlow" "My Github Test With CLI"
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
