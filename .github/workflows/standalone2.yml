@@ -23,7 +23,7 @@ jobs:
       
       - name: Run Neoload test
         run: |
-          neoload run --project-path tests/neoload_projects --scenario HappyFlow
+          neoload run "My Github Test With CLI" --scenario HappyFlow
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
