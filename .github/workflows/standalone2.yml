@@ -19,11 +19,11 @@ jobs:
       - name: Extract Neoload test project
         run: |
           mkdir -p tests/neoload_projects
-          unzip demowebshopp.zip -d tests/neoload_projects
+          unzip -o demowebshopp.zip -d tests/neoload_projects
       
       - name: Run Neoload test
         run: |
-          neoload run "My Github Test With CLI" --scenario HappyFlow
+          neoload run "My Github Test With CLI" --scenario "HappyFlow"
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
