@@ -23,4 +23,4 @@ jobs:
         run: unzip demowebshopp.zip -d demowebshopp
 
       - name: Run Neoload test
-        run: neoload run --scenario scenario1
+        run: neoload run --scenario HappyFlow
