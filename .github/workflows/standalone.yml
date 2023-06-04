@@ -15,11 +15,11 @@ jobs:
 
       - name: Install Neoload CLI
         run: pip3 install -U neoload
-                  
-      - name: "Prepare NeoLoad test"
-        run: |
-          neoload project upload --path demowebshopp.zip \
-            --scenario 'HappyFlow'
+            
+      - name: Extract Neoload test project
+        run: | 
+          unzip demowebshopp.zip -d demowebshopp
+          neoload test-settings use demowebshopp
       
       - name: Run Neoload test
         run: |
