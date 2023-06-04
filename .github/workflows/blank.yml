@@ -21,6 +21,9 @@ jobs:
         
       - name: Extract Neoload test project
         run: unzip demowebshopp.zip -d demowebshopp
-
+      
+      - name: Run Neoload help
+        run: neoload run --help 
+        
       - name: Run Neoload test
         run: neoload run --scenario HappyFlow
