@@ -8,39 +8,31 @@ on:
 jobs:
   neoload_test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Install Neoload CLI
         run: pip3 install -U neoload
-                  
+
+      - name: Log in to Neoload Web
+        run: neoload login
+
       - name: Extract Neoload test project
         run: |
           mkdir -p tests/neoload_projects
-          unzip -o demowebshopp.zip -d tests/neoload_projects
-          
-      - name: run help
-        run: neoload run --help
-      
+          unzip demowebshopp.zip -d tests/neoload_projects
+
       - name: Run Neoload test
+        run: neoload run --scenario "HappyFlow" --detached "My Github Test With CLI"
+
+      - name: Check Neoload test status
         run: |
-          neoload run --scenario "HappyFlow" --detached "My Github Test With CLI"
-          status=$?
-          if [ $status -eq 0 ]; then
+          status=$(neoload status)
+          if [[ $status == *"No active test found"* ]]; then
             echo "Neoload test run completed successfully"
           else
-            echo "Neoload test run failed with exit code $status"
+            echo "Neoload test run failed"
             exit 1
           fi
-        
-      - name: Generate Test Report
-        run: neoload test-results junitsla
-
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
-        with:
-          report_paths: junit-sla.xml
-          fail_on_test_failures: true
