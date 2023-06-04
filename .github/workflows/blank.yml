@@ -1,0 +1,23 @@
+name: Neoload Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  neoload_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Neoload CLI
+        run: pip3 install -U neoload
+
+      - name: Extract Neoload test project
+        run: unzip demowebshopp.zip -d demowebshopp
+
+      - name: Run Neoload test
+        run: neoload test run --scenario "scenario1" --launch-report "report.html"
