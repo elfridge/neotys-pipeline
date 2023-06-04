@@ -18,8 +18,8 @@ jobs:
                   
       - name: "Prepare NeoLoad test"
         run: |
-          neoload test-settings --scenario 'HappyFlow' \
-            project --path demowebshopp.zip
+          neoload test-settings project --path demowebshopp.zip \
+            --scenario 'HappyFlow'
       
       - name: Run Neoload test
         run: |
