@@ -23,7 +23,7 @@ jobs:
       
       - name: Run Neoload test
         run: |
-          neoload test --scenario "HappyFlow" --no-web
+          neoload run --scenario "HappyFlow" --no-web
           status=$?
           if [ $status -eq 0 ]; then
             echo "Neoload test run completed successfully"
