@@ -20,4 +20,4 @@ jobs:
         run: unzip demowebshopp.zip -d demowebshopp
 
       - name: Run Neoload test
-        run: neoload run --scenario "scenario1" --launch-report "report.html"
+        run: neoload run --scenario "scenario1"
